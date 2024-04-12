@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const HandleEntrar = () => {
     console.log(email + " " + password);
   };
+  useEffect(() => {
+    console.log();
+  }, []);
+  useEffect(() => {
+    if (window.confirm("Gatou ou cachorro?")) {
+      console.log("Gatou");
+    } else {
+      console.log("Cachorro");
+    }
+  }, []);
+
   return (
     <div>
       <form>
