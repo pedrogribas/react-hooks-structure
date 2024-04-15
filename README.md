@@ -21,6 +21,15 @@ Servem para definir o esqueleto do projeto, sendo a maior parte do código na pa
 
 As rotas são os caminhos da nossa página, gerenciadas através do react router dom. Ex:. tela de login e menu.
 
+### Components
+
+Os componentes são elementos genéricos que se tornam específicos na página. Para utilizar props e children no typescript é necessária uma interface. Ex:
+interface IButtonLoginProps {
+  type?: "submit" | "reset" | "button";
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+
 ### React Hooks:
 | Hook               | Explicação                                                |
 | ----------------- | ---------------------------------------------------------------- |
