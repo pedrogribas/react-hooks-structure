@@ -34,9 +34,9 @@ export const Login = () => {
         <InputLogin
           label="E-mail"
           onChange={(newValue) => setEmail(newValue)}
-          onPressEnter={() => inputPasswordRef.current?.focus}
           type="email"
           value={email}
+          onPressEnter={() => inputPasswordRef.current?.focus()}
         />
         {/* <label>
           <span>E-mail</span>
@@ -44,14 +44,19 @@ export const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            onKeyDown={(e) =>
-              e.key === "Enter" ? inputPasswordRef.current.focus() : undefined
-            }
-        </label>
-          /> */}
+            onKeyDown={(e) => {
+              if (inputPasswordRef.current !== null) {
+                e.key === "Enter"
+                  ? inputPasswordRef.current.focus()
+                  : undefined;
+              }
+            }}
+          />
+        </label> */}
 
         <InputLogin
           label="Password"
+          ref={inputPasswordRef}
           onChange={(newValue) => setPassword(newValue)}
           type="password"
           value={password}
