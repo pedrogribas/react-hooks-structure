@@ -29,6 +29,7 @@ As rotas são os caminhos da nossa página, gerenciadas através do react router
 |UseState           | Define um estado para uma variável dinâmica e uma função para alterá-lo.
 |UseMemo            | Só vai recompilar quando um dos valores de dependência forem alterados, UseMemo é uma func atribuida a uma variável e com return.
 |UseRef             | Retorna um objeto ou valor referenciado constantemente. Com o .current você pode fazer alterações diretamente no objeto referenciado
+|ForwardRef             | Permite referenciar um objeto componentizado
 
 ## Autores
 
