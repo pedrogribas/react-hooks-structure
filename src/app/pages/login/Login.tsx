@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const HandleEntrar = () => {
+  const HandleEntrar = useCallback(() => {
     console.log(email + " " + password);
-  };
+  }, [email, password]);
   useEffect(() => {
     console.log(password);
   }, [password]);
