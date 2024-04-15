@@ -8,8 +8,11 @@ export const Login = () => {
     console.log(email + " " + password);
   };
   useEffect(() => {
-    console.log();
-  }, []);
+    console.log(password);
+  }, [password]);
+  useEffect(() => {
+    console.log(email);
+  }, [email]);
   useEffect(() => {
     if (window.confirm("Gatou ou cachorro?")) {
       console.log("Gatou");
