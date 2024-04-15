@@ -1,8 +1,8 @@
-# React + TypeScript + Vite
+# React Estrutura e Hooks
 
 Estudos seguindo o curso do: @LucasSouzaDev;
 link: https://www.youtube.com/@LucasSouzaDev
-
+Tecnologias utilizadas: React, Typescript, Vite
 
 ## Deploy
 
