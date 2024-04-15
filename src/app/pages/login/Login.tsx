@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export const Login = () => {
+  const inputPasswordRef = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,7 +22,7 @@ export const Login = () => {
     }
   }, []);
   const emailLength = useMemo(() => {
-    console.log("Executou");
+    console.log("UseMemo");
     return email.length;
   }, [email]);
 
@@ -35,6 +36,9 @@ export const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={(e) =>
+              e.key === "Enter" ? inputPasswordRef.current.focus() : undefined
+            }
           />
         </label>
         <label>
@@ -42,6 +46,7 @@ export const Login = () => {
           <input
             type="password"
             value={password}
+            ref={inputPasswordRef}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
