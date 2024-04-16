@@ -9,7 +9,6 @@ export const ButtonLogin: React.FC<IButtonLoginProps> = ({
   type,
   children,
 }) => {
-  const usuarioLogadoContext = useUsuarioLogado();
   return (
     <button type={type} onClick={onClick}>
       {children}
