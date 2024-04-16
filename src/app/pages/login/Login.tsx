@@ -1,8 +1,19 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { InputLogin } from "./components/InputLogin";
 import { ButtonLogin } from "./components/ButtonLogin";
+import { Link } from "react-router-dom";
+import { UsuarioLogadoContext } from "../../shared/contexts";
 
 export const Login = () => {
+  const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+  //ou   const { nomeDoUsuario } = useContext(UsuarioLogadoContext);
   const inputPasswordRef = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +43,7 @@ export const Login = () => {
     <div>
       <form>
         <p>Quantidade de caracteres no e-mail: {emailLength}</p>
+        <p>{usuarioLogadoContext.nomeDoUsuario}</p>
         <InputLogin
           label="E-mail"
           onChange={(newValue) => setEmail(newValue)}
@@ -78,7 +90,7 @@ export const Login = () => {
           Entrar
         </ButtonLogin>
         <ButtonLogin onClick={HandleEntrar} type="button">
-          Cadastro
+          <Link to="../dashboard/Dashboard.tsx">DashBoard</Link>
         </ButtonLogin>
       </form>
     </div>
