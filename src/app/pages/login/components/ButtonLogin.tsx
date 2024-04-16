@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { UsuarioLogadoContext } from "../../../shared/contexts";
-
 interface IButtonLoginProps {
   type?: "submit" | "reset" | "button";
   onClick?: () => void;
@@ -12,10 +9,10 @@ export const ButtonLogin: React.FC<IButtonLoginProps> = ({
   type,
   children,
 }) => {
-  const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+  const usuarioLogadoContext = useUsuarioLogado();
   return (
     <button type={type} onClick={onClick}>
-      {usuarioLogadoContext.nomeDoUsuario} {children}
+      {children}
     </button>
   );
 };

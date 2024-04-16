@@ -40,6 +40,15 @@ interface IButtonLoginProps {
 |UseRef             | Retorna um objeto ou valor referenciado constantemente. Com o .current você pode fazer alterações diretamente no objeto referenciado
 |ForwardRef             | Permite referenciar um objeto componentizado
 
+
+### React Hooks Personalizados:
+Um hook personalizado é basicamente um hook existente específico para uma atividade. Como no arquivo 'UseUsuarioLogado' em hooks. 
+O hook para ser um hook deve utilizar algum dos hooks genéricos do react dentro de seu código e utilizar a palavra 'use' em alguma parte do nome da função (recomendado no início para fins de padrão).
+
+### Context
+Contexts são informações compartilhadas entre várias telas.
+
+
 ## Autores
 
 - [@pedrogribas](https://www.github.com/pedrogribas)

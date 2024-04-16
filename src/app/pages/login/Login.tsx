@@ -1,18 +1,11 @@
-import {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { InputLogin } from "./components/InputLogin";
 import { ButtonLogin } from "./components/ButtonLogin";
 import { Link } from "react-router-dom";
-import { UsuarioLogadoContext } from "../../shared/contexts";
+import { useUsuarioLogado } from "../../shared/hooks";
 
 export const Login = () => {
-  const usuarioLogadoContext = useContext(UsuarioLogadoContext);
+  const usuarioLogadoContext = useUsuarioLogado();
   //ou   const { nomeDoUsuario } = useContext(UsuarioLogadoContext);
   const inputPasswordRef = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState("");
