@@ -2,8 +2,28 @@
   "tasks": [
     {
       "id": "1",
-      "title": "Tarefa 01",
+      "title": "Exemplo de Tarefas",
+      "isCompleted": true
+    },
+    {
+      "id": "2",
+      "title": "Limpar cozinha",
       "isCompleted": false
+    },
+    {
+      "id": "3",
+      "title": "Fazer café",
+      "isCompleted": true
+    },
+    {
+      "id": "4",
+      "title": "Jogar lol",
+      "isCompleted": false
+    },
+    {
+      "id": "259f",
+      "title": "ok!",
+      "isCompleted": true
     }
   ]
 }
