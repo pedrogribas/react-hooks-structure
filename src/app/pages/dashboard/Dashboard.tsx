@@ -1,21 +1,30 @@
 import { useCallback, useState } from "react";
 
+interface IListTask {
+  id: number;
+  title: string;
+  isCompleted: boolean;
+}
+
 export const Dashboard = () => {
-  const [lista, setLista] = useState<string[]>(["Teste1", "Teste2", "Teste3"]);
+  const [lista, setLista] = useState<IListTask[]>([]);
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
     useCallback((e) => {
       if (e.key == "Enter") {
         if (e.currentTarget.value.trim().length === 0) return;
-
-        // lista.push(e.currentTarget.value);
-        // setLista([...lista]);
-        // setLista([...lista, e.currentTarget.value]);
         const value = e.currentTarget.value;
         e.currentTarget.value = "";
         setLista((oldLista) => {
-          if (oldLista.includes(value)) return oldLista;
+          if (oldLista.some((listItem) => listItem.title === value))
+            return oldLista;
 
-          return [...oldLista, value];
+          return [
+            ...oldLista,
+            {
+              title: value,
+              isCompleted: false,
+            },
+          ];
         });
       }
     }, []);
@@ -23,9 +32,34 @@ export const Dashboard = () => {
     <div>
       <p>Lista</p>
       <input type="text" onKeyDown={handleInputKeyDown} />
+      <p>{lista.filter((listTask) => listTask.isCompleted).length}</p>
       <ol>
-        {lista.map((value: string, index: number) => {
-          return <li key={index}>{value}</li>;
+        {lista.map((listTask: IListTask) => {
+          return (
+            <li key={listTask.id}>
+              <input
+                type="checkbox"
+                checked={listTask.isCompleted}
+                onChange={() => {
+                  setLista((oldList) => {
+                    return oldList.map((oldListTask) => {
+                      const newIsCompleted =
+                        oldListTask.title === listTask.title
+                          ? !oldListTask.isCompleted
+                          : oldListTask.isCompleted;
+                      return {
+                        ...oldListTask,
+                        isCompleted: newIsCompleted,
+                      };
+                    });
+                  });
+                }}
+                name=""
+                id=""
+              />
+              {listTask.title}
+            </li>
+          );
         })}
       </ol>
     </div>
