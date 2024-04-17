@@ -1,7 +1,7 @@
 import { Api } from "../ApiConfig";
 import { ApiException } from "../ApiException";
 
-interface IListTask {
+export interface IListTask {
   id: number;
   title: string;
   isCompleted: boolean;
