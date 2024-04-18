@@ -41,6 +41,17 @@ export const Dashboard = () => {
     },
     [lista]
   );
+  const handleDelete = useCallback((id: number) => {
+    TasksService.deleteById(id).then((result) => {
+      if (result instanceof ApiException) {
+        alert(result.message);
+      } else {
+        setLista((oldList) => {
+          return oldList.filter((oldListTask) => oldListTask.id !== id);
+        });
+      }
+    });
+  }, []);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
     useCallback(
@@ -83,6 +94,9 @@ export const Dashboard = () => {
                 id=""
               />
               {listTask.title}
+              <button type="button" onClick={() => handleDelete(listTask.id)}>
+                Delete
+              </button>
             </li>
           );
         })}

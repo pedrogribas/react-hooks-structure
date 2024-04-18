@@ -1,14 +1,9 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "title": "Exemplo de Tarefas",
-      "isCompleted": true
-    },
-    {
       "id": "2",
       "title": "Limpar cozinha",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": "3",
@@ -23,7 +18,7 @@
     {
       "id": "259f",
       "title": "ok!",
-      "isCompleted": true
+      "isCompleted": false
     }
   ]
 }
